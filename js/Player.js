@@ -9,7 +9,7 @@ class Player {
     this.skin = [['/assets/images/character.png', '/assets/images/character2.png'], ['/assets/images/character_dead.png', '/assets/images/character_dead2.png']]
     
     this.position = {
-      x: window.innerWidth >= 900 ? 128 : 64,
+      x: window.innerWidth >= 900 ? 128 : 30,
       y: SCREEN_CONFIG.height - this.height
     }
     
