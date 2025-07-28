@@ -5,7 +5,7 @@ class Block {
     this.skin = [['#0090ff', 'red', 'pink'], ['#8D02FF', 'orange', '#FFC502']]
     this.dn = 1
     this.gravity = 0
-    this.moveSpeed = window.innerWidth >= 900 ? -1 : -0.1
+    this.moveSpeed = window.innerWidth >= 500 ? 2 : 0.5
     
     this.arrY = [1, 2.1]
     this.posY = Math.floor(Math.random() * 2)
@@ -37,9 +37,9 @@ class Block {
     gameScreen.append(this.sprite)
   }
   
-  update(){
+  update(speed){
     this.position.x += this.velocity.x
-    this.velocity.x += this.moveSpeed
+    this.velocity.x += 0 - (speed * (this.moveSpeed * Math.floor(Math.random() * 10) + 1))
     
     this.numA = Math.floor(Math.random() * 2 )
     this.numB = Math.floor(Math.random() * 3)

@@ -6,7 +6,7 @@ class Player {
     this.gravity = 1
     this.jumpSpeed = 25
     this.moveSpeed = 5
-    this.skin = [['/assets/images/character.png', '/assets/images/character2.png'], ['/assets/images/character_dead.png', '/assets/images/character_dead2.png']]
+    this.skin = [[new Image().src = '/assets/images/character.png', new Image().src = '/assets/images/character2.png'], [new Image().src = '/assets/images/character_dead.png', new Image().src = '/assets/images/character_dead2.png']]
     
     this.position = {
       x: window.innerWidth >= 900 ? 128 : 30,
@@ -63,7 +63,13 @@ class Player {
       musics.hit.play()
       musics.jump.pause()
       musics.bgm.pause()
+      musics.jump.currentTime = 0
       musics.bgm.currentTime = 0
+
+      setTimeout(() => {
+        musics.hit.pause()
+        musics.hit.currentTime = 0
+      }, 300)
       
       if (localStorage.getItem('opt') == 1) {
         this.sprite.src = this.skin[1][0]
@@ -82,10 +88,11 @@ class Player {
   }
   
   jump(){
-    if (player.velocity.y === 0)
-      player.velocity.y = -30
+    if (this.velocity.y === 0)
+      this.velocity.y = -30
+      musics.jump.currentTime = 0
       musics.jump.play()
-    
+
   }
   
   
